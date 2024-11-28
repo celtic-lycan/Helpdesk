@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <header
+      style="
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      "
+    >
+      <h1>Welcome to Helpdesk Chatbot</h1>
+      <p style="margin: 0; font-size: 0.9em">
+        Your friendly assistant, ready to help you!
+      </p>
+      <div class="button-container">
+        <a id="adminButton" href="http://127.0.0.1:5000/admin"> View Tickets </a>
+        <button id="logOutBtn" onclick="handleLogOut()"> Log Out </button>
+      </div>
+    </header>
+
+    <div class="chatbot-button" onclick="toggleChatbot()" title="Open Chat">
+      💬
+    </div>
+
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <span style="font-weight: bold">Helpdesk Bot</span>
+        <button
+          onclick="toggleChatbot()"
+          style="
+            float: right;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+          "
+        >
+          ✖
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+        <!-- Messages will appear here -->
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  </body>
+</html>

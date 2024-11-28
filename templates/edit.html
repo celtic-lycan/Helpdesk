@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
+    <title>Edit Ticket Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1 class="form-heading">Edit Ticket Form</h1>
+      <form action="/submit-ticket" method="post">
+        <!-- Ticket Number -->
+        <div class="form-group">
+          <label for="ticketNumber">Ticket Number</label>
+          <input
+            type="text"
+            id="ticketNumber"
+            name="ticketNumber"
+            placeholder="Enter ticket number"
+            readonly
+          />
+        </div>
+
+        <!-- User ID -->
+        <div class="form-group">
+          <label for="userId">User ID</label>
+          <input
+            type="text"
+            id="userId"
+            name="userId"
+            placeholder="Enter user ID"
+            readonly
+          />
+        </div>
+
+        <!-- Application -->
+        <div class="form-group">
+          <label for="application">Application</label>
+          <input
+            type="text"
+            id="application"
+            name="application"
+            placeholder="Enter application name"
+            readonly
+          />
+        </div>
+
+        <!-- Problem Type -->
+        <div class="form-group">
+          <label for="problemType">Problem Type</label>
+          <input
+            type="text"
+            id="problemType"
+            name="problemType"
+            placeholder="Enter problem type"
+            required
+          />
+        </div>
+
+        <!-- Problem Description -->
+        <div class="form-group">
+          <label for="problemDescription">Problem Description</label>
+          <textarea
+            id="problemDescription"
+            name="problemDescription"
+            rows="4"
+            placeholder="Describe the problem"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Status -->
+        <fieldset class="form-group">
+          <legend>Status</legend>
+          <div class="status-options">
+            <label>
+              <input type="radio" name="status" value="Unresolved" required />
+              Unresolved
+            </label>
+            <label>
+              <input type="radio" name="status" value="Resolved" />
+              Resolved
+            </label>
+            <label>
+              <input type="radio" name="status" value="Seen" />
+              Seen
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Buttons -->
+        <div class="form-actions">
+          <button
+            type="button"
+            class="cancel-button"
+            onclick="window.location.href='/admin';"
+          >
+            Cancel
+          </button>
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/edit.js') }}"></script>
+  </body>
+</html>
